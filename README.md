@@ -38,3 +38,11 @@ export LESSCHARSET=utf-8
 ### References:
 http://howiefh.github.io/2014/10/11/git-encoding/
 
+
+## Q：Git如何为远程仓库(origin)设置push默认分值(branch)？
+
+运行git-bash命令，依次输入如下命令：
+```bash
+git push --set-upstream {repo} {branch}
+```
+
