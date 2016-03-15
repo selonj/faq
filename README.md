@@ -22,3 +22,19 @@ https://help.github.com/articles/changing-a-commit-message/
 
 ### References:
 https://github.com/msysgit/msysgit/wiki/Setting-up-a-Git-server-on-Windows-using-Git-for-Windows-and-CopSSH
+
+
+## Q：Git乱码解决方案？
+
+运行git-bash命令，依次输入如下命令：
+```bash
+git config --global core.quotepath false          # 显示 status 编码
+git config --global gui.encoding utf-8            # 图形界面编码
+git config --global i18n.commit.encoding utf-8    # 提交信息编码
+git config --global i18n.logoutputencoding (utf-8|gbk)  # 输出 log 编码
+export LESSCHARSET=utf-8
+```
+
+### References:
+http://howiefh.github.io/2014/10/11/git-encoding/
+
