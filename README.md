@@ -1,6 +1,7 @@
 ﻿# FAQ
 
 ## Q：如何修改Git过去提交的message？
+
 1. 运行 **git rebase -i ( message hash | HEAD~n)**，选择要修改的message行，将pick改为edit，保存退出；
 2. 运行 **git commit -amend -m "new message"**，将新的message提交；
 3. 运行 **git rebase --continue**提交修改；
@@ -8,3 +9,16 @@
 
 ###References:
 https://help.github.com/articles/changing-a-commit-message/
+
+
+## Q：Windows7如何在CopSSH中新建Git远程仓库？
+
+1. 进入CopSSH/home/**{user}**目录下，运行 **git init --bare {repo};**；
+2. 右键点击“**{repo}**”目录，选择属性->安全->编辑->添加，添加**{user}**；
+3. 设置**{user}**权限为：**修改**，**读取和执行**；
+
+> 如果在安全选项卡未为**{repo}**添加**{user}**或设置权限，在提交源码到远程仓库时将显示如下错误信息：
+> ![insufficient permission](etc/insufficient-permission.jpg)
+
+### References:
+https://github.com/msysgit/msysgit/wiki/Setting-up-a-Git-server-on-Windows-using-Git-for-Windows-and-CopSSH
