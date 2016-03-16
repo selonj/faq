@@ -46,3 +46,15 @@ http://howiefh.github.io/2014/10/11/git-encoding/
 git push --set-upstream {repo} {branch}
 ```
 
+
+## Q：Hibernate中如何避免@OneToMany生成连接表
+
+将@OneToMany中的mappedBy设置为多的一端，如下例所示：
+
+```java
+@ManyToOne
+private Node parent;
+
+@OneToMany(mappedBy = "parent")
+private Set<Node> children = new HashSet<>();
+```
