@@ -68,3 +68,34 @@ private Set<Node> children = new HashSet<>();
   update user set host = '%' where user = 'root';
   flush privileges;
 ```
+
+## Q：Gradle web project convert to Eclipse web project
+
+在build.gradle中添加如下配置信息
+
+```groovy
+apply plugin: 'eclipse'
+
+eclipse {
+    classpath {
+        downloadSources = false
+    }
+}
+
+import org.gradle.plugins.ide.eclipse.model.Facet
+apply plugin: 'eclipse-wtp'
+eclipse {
+    wtp {
+        facet {
+            facet name: 'jst.web', type: Facet.FacetType.fixed
+            facet name: 'wst.jsdt.web', type: Facet.FacetType.fixed
+            facet name: 'jst.java', type: Facet.FacetType.fixed
+            facet name: 'jst.web', version: '3.0'
+            facet name: 'jst.java', version: '1.7'
+            facet name: 'wst.jsdt.web', version: '1.0'
+        }
+    }
+}
+```
+### References:
+http://jameskaron.iteye.com/blog/2250079
