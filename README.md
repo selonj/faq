@@ -58,3 +58,13 @@ private Node parent;
 @OneToMany(mappedBy = "parent")
 private Set<Node> children = new HashSet<>();
 ```
+
+## Q：MySQL Connection Error: Host  is not allowed to connect to this MySQL server
+
+运行mysql命令行程序，输入以下sql语句，更新用户访问权限
+
+```sql
+  use mysql;
+  update user set host = '%' where user = 'root';
+  flush privileges;
+```
