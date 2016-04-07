@@ -99,3 +99,25 @@ eclipse {
 ```
 ### References:
 http://jameskaron.iteye.com/blog/2250079
+
+
+## Q: Vim基本配置
+
+```bash
+colors zellner
+syntax on
+:set number
+set ts=2
+set sw=2
+
+set fileencodings=ucs-bom,utf-8,chinese
+set fileencoding=utf-8
+```
+
+## Q: JPA中设置@ElementCollection元素为有序数组
+
+```java
+@ElementCollection(fetch = FetchType.LAZY)
+@OrderColumn(name = "nth")
+private List<Attribute> attributes;
+```
