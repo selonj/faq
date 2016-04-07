@@ -109,10 +109,10 @@ syntax on
 :set number
 set ts=2
 set sw=2
-
 set fileencodings=ucs-bom,utf-8,chinese
 set fileencoding=utf-8
 ```
+
 
 ## Q: JPA中设置@ElementCollection元素为有序数组
 
@@ -120,4 +120,10 @@ set fileencoding=utf-8
 @ElementCollection(fetch = FetchType.LAZY)
 @OrderColumn(name = "nth")
 private List<Attribute> attributes;
+```
+
+
+## Q: Jetty中如何设置URIEncoding？
+```java
+System.setProperty("org.mortbay.util.URI.charset", "UTF-8");
 ```
