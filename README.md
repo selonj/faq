@@ -99,3 +99,17 @@ eclipse {
 ```
 ### References:
 http://jameskaron.iteye.com/blog/2250079
+
+
+## Q: Vim基本配置
+
+```bash
+colors zellner
+syntax on
+:set number
+set ts=2
+set sw=2
+
+set fileencodings=ucs-bom,utf-8,chinese
+set fileencoding=utf-8
+```
