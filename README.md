@@ -109,10 +109,10 @@ syntax on
 :set number
 set ts=2
 set sw=2
-
 set fileencodings=ucs-bom,utf-8,chinese
 set fileencoding=utf-8
 ```
+
 
 ## Q: JPA中设置@ElementCollection元素为有序数组
 
@@ -123,9 +123,9 @@ private List<Attribute> attributes;
 ```
 
 
-## Q: 如何根据域名设置多个SSH-Key？
+## <a name="config_ssh_key_4_multi_hosts"/>Q: 如何根据域名设置多个SSH-Key？
 
-创建或修改~/.ssh/config文件，添加如下配置
+创建或修改 ` ~/.ssh/config ` 文件，添加如下配置
 
 ```yaml
 Host me.github.com
@@ -143,3 +143,7 @@ Host work.github.com
 
 http://stackoverflow.com/questions/3225862/multiple-github-accounts-ssh-config
 
+## Q: Jetty中如何设置URIEncoding？
+```java
+System.setProperty("org.mortbay.util.URI.charset", "UTF-8");
+```
