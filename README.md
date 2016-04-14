@@ -121,3 +121,25 @@ set fileencoding=utf-8
 @OrderColumn(name = "nth")
 private List<Attribute> attributes;
 ```
+
+
+## Q: 如何根据域名设置多个SSH-Key？
+
+创建或修改~/.ssh/config文件，添加如下配置
+
+```yaml
+Host me.github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/me_rsa
+
+Host work.github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/work_rsa
+```
+
+### References:
+
+http://stackoverflow.com/questions/3225862/multiple-github-accounts-ssh-config
+
