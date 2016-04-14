@@ -1,17 +1,31 @@
 ﻿# FAQ
 
-## Q：如何修改Git过去提交的message？
+## Contents
+- [如何修改Git过去提交的message？](#reset_commited_message)
+- [Windows7如何在CopSSH中新建Git远程仓库？](#create_git_repository_on_copssh)
+- [Git乱码解决方案？](#git_messy_code_problem)
+- [Git如何为远程仓库(origin)设置push默认分值(branch)？](#set_default_push_stream_in_git)
+- [Hibernate中如何避免@OneToMany生成连接表](#hibernate_avoid_create_join_table_4_one_to_many)
+- [MySQL Connection Error: Host  is not allowed to connect to this MySQL server](#mysql_access_permission)
+- [Gradle web project convert to Eclipse web project](#build_gradle_project_4_eclipse)
+- [Vim基本配置](#basic_vim_settings)
+- [JPA中设置@ElementCollection元素为有序数组](#jpa_element_collection_as_ordered_array)
+- [如何根据域名设置多个SSH-Key？](#config_ssh_key_4_multi_hosts)
+- [Jetty中如何设置URIEncoding？](#set_jetty_uri_encoding)
+	
+
+### <a name="reset_commited_message"/> Q：如何修改Git过去提交的message？
 
 1. 运行 **git rebase -i ( message hash | HEAD~n)**，选择要修改的message行，将pick改为edit，保存退出；
 2. 运行 **git commit -amend -m "new message"**，将新的message提交；
 3. 运行 **git rebase --continue**提交修改；
 4. 如果已提交到远程仓库，需要运行 **git push <repo> <branch> --force**更新远程git仓库的message。
 
-###References:
+####References:
 https://help.github.com/articles/changing-a-commit-message/
 
 
-## Q：Windows7如何在CopSSH中新建Git远程仓库？
+### <a name="create_git_repository_on_copssh"/> Q：Windows7如何在CopSSH中新建Git远程仓库？
 
 1. 进入CopSSH/home/**{user}**目录下，运行 **git init --bare {repo};**；
 2. 右键点击“**{repo}**”目录，选择属性->安全->编辑->添加，添加**{user}**；
@@ -20,11 +34,11 @@ https://help.github.com/articles/changing-a-commit-message/
 > 如果在安全选项卡未为**{repo}**添加**{user}**或设置权限，在提交源码到远程仓库时将显示如下错误信息：
 > ![insufficient permission](etc/insufficient-permission.jpg)
 
-### References:
+#### References:
 https://github.com/msysgit/msysgit/wiki/Setting-up-a-Git-server-on-Windows-using-Git-for-Windows-and-CopSSH
 
 
-## Q：Git乱码解决方案？
+### <a name="git_messy_code_proble"/> Q：Git乱码解决方案？
 
 运行git-bash命令，依次输入如下命令：
 ```bash
@@ -35,11 +49,11 @@ git config --global i18n.logoutputencoding (utf-8|gbk)  # 输出 log 编码
 export LESSCHARSET=utf-8
 ```
 
-### References:
+#### References:
 http://howiefh.github.io/2014/10/11/git-encoding/
 
 
-## Q：Git如何为远程仓库(origin)设置push默认分值(branch)？
+### <a name="set_default_push_stream_in_git"/> Q：Git如何为远程仓库(origin)设置push默认分值(branch)？
 
 运行git-bash命令，依次输入如下命令：
 ```bash
@@ -47,7 +61,7 @@ git push --set-upstream {repo} {branch}
 ```
 
 
-## Q：Hibernate中如何避免@OneToMany生成连接表
+### <a name="hibernate_avoid_create_join_table_4_one_to_many"/> Q：Hibernate中如何避免@OneToMany生成连接表
 
 将@OneToMany中的mappedBy设置为多的一端，如下例所示：
 
@@ -59,7 +73,7 @@ private Node parent;
 private Set<Node> children = new HashSet<>();
 ```
 
-## Q：MySQL Connection Error: Host  is not allowed to connect to this MySQL server
+### <a name="mysql_access_permission"/> Q：MySQL Connection Error: Host  is not allowed to connect to this MySQL server
 
 运行mysql命令行程序，输入以下sql语句，更新用户访问权限
 
@@ -69,7 +83,7 @@ private Set<Node> children = new HashSet<>();
   flush privileges;
 ```
 
-## Q：Gradle web project convert to Eclipse web project
+### <a name="build_gradle_project_4_eclipse"/> Q：Gradle web project convert to Eclipse web project
 
 在build.gradle中添加如下配置信息
 
@@ -97,11 +111,11 @@ eclipse {
     }
 }
 ```
-### References:
+#### References:
 http://jameskaron.iteye.com/blog/2250079
 
 
-## Q: Vim基本配置
+### <a name="basic_vim_settings"/> Q: Vim基本配置
 
 ```bash
 colors zellner
@@ -114,7 +128,7 @@ set fileencoding=utf-8
 ```
 
 
-## Q: JPA中设置@ElementCollection元素为有序数组
+### <a name="jpa_element_collection_as_ordered_array"/> Q: JPA中设置@ElementCollection元素为有序数组
 
 ```java
 @ElementCollection(fetch = FetchType.LAZY)
@@ -123,7 +137,7 @@ private List<Attribute> attributes;
 ```
 
 
-## <a name="config_ssh_key_4_multi_hosts"/>Q: 如何根据域名设置多个SSH-Key？
+### <a name="config_ssh_key_4_multi_hosts"/> Q: 如何根据域名设置多个SSH-Key？
 
 创建或修改 ` ~/.ssh/config ` 文件，添加如下配置
 
@@ -139,11 +153,11 @@ Host work.github.com
     IdentityFile ~/.ssh/work_rsa
 ```
 
-### References:
+#### References:
 
 http://stackoverflow.com/questions/3225862/multiple-github-accounts-ssh-config
 
-## Q: Jetty中如何设置URIEncoding？
+### <a name="set_jetty_uri_encoding"/> Q: Jetty中如何设置URIEncoding？
 ```java
 System.setProperty("org.mortbay.util.URI.charset", "UTF-8");
 ```
