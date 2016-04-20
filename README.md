@@ -12,6 +12,7 @@
 - [JPA中设置@ElementCollection元素为有序数组](#jpa_element_collection_as_ordered_array)
 - [如何根据域名设置多个SSH-Key？](#config_ssh_key_4_multi_hosts)
 - [Jetty中如何设置URIEncoding？](#set_jetty_uri_encoding)
+- [Git中如何将文件还原某个分支上的文件？](#git_revert_files_from_repos)
 	
 
 ### <a name="reset_commited_message"/> Q：如何修改Git过去提交的message？
@@ -160,4 +161,10 @@ http://stackoverflow.com/questions/3225862/multiple-github-accounts-ssh-config
 ### <a name="set_jetty_uri_encoding"/> Q: Jetty中如何设置URIEncoding？
 ```java
 System.setProperty("org.mortbay.util.URI.charset", "UTF-8");
+```
+
+### <a name="git_revert_files_from_repos"/> Q: Git中如何将文件还原某个分支上的文件？
+
+```bash 
+git checkout HEAD/hash/branch -- <path>
 ```
