@@ -13,6 +13,8 @@
 - [如何根据域名设置多个SSH-Key？](#config_ssh_key_4_multi_hosts)
 - [Jetty中如何设置URIEncoding？](#set_jetty_uri_encoding)
 - [Git中如何将文件还原某个分支上的文件？](#git_revert_files_from_repos)
+- [Hibernate Criteria如何过滤因链接查询导致重复的记录集？ ](#hibernate_avoid_duplicated_results_for_join_criteria)
+- [Hibernate如何在删除一个@Entity时删除相应的@ElementCollection元素？](#how_to_delete_all_element_collection_when_entity_deleted)
 	
 
 ### <a name="reset_commited_message"/> Q：如何修改Git过去提交的message？
@@ -168,3 +170,16 @@ System.setProperty("org.mortbay.util.URI.charset", "UTF-8");
 ```bash 
 git checkout HEAD/hash/branch -- <path>
 ```
+
+
+
+### <a name="hibernate_avoid_duplicated_results_for_join_criteria"/> Q: Hibernate Criteria如何过滤因链接查询导致重复的记录集？ 
+
+```java
+org.hibernate.Criteria.setResultTransformer(org.hibernate.criterion.CriteriaSpecification.DISTINCT_ROOT_ENTITY) 
+```
+
+
+### Q: <a name="how_to_delete_all_element_collection_when_entity_deleted"/> Hibernate如何在删除一个@Entity时删除相应的@ElementCollection元素？
+
+Hibernate目前不支持在删除一个@Entity时删除相应的@ElelementCollection,必须使用`Java Persistence API`。
